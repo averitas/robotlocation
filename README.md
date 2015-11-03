@@ -4,6 +4,7 @@ class sneak:
     print:draw the point
 
 class MainWindow:
+<<<<<<< HEAD
      Ui::MainWindow *ui;
     sneak *robot;
     QLineEdit *lineEditr;
@@ -14,3 +15,6 @@ class MainWindow:
     QLabel *labela;
     bool jr;
     bool ja;
+
+
+    
