@@ -7,6 +7,7 @@
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent)
 {
+    setFixedSize(420,350);
     ja=jr=false;
     labelr=new QLabel(tr("R"));
     lineEditr=new QLineEdit;
@@ -25,6 +26,8 @@ MainWindow::MainWindow(QWidget *parent) :
 
     connect(button,SIGNAL(clicked(bool)),this,SLOT(enableGo()));
 
+    robot=new sneak;
+
     QWidget *bar=new QWidget();
     this->setCentralWidget(bar);
 
@@ -37,6 +40,7 @@ MainWindow::MainWindow(QWidget *parent) :
 
     QVBoxLayout *mainLayout=new QVBoxLayout;
     mainLayout->addLayout(menubar);
+    mainLayout->addWidget(robot);
 
     centralWidget()->setLayout(mainLayout);
 }
@@ -51,8 +55,9 @@ void MainWindow::startMove(){
 void MainWindow::enableGo(){
     int r=lineEditr->text().toInt();
     double angle=lineEdita->text().toDouble();
-    robot.move(r,angle);
-    QMessageBox::about(NULL, "About", robot.get());
+    robot->move(r,angle);
+    QMessageBox::about(NULL, "About", robot->get());
+    update();
 }
 
 void MainWindow::getr(const QString& text){

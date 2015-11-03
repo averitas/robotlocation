@@ -6,6 +6,7 @@
 #include <QLabel>
 #include <QPushButton>
 #include <QLineEdit>
+#include <QPaintEvent>
 
 namespace Ui {
 class MainWindow;
@@ -29,7 +30,7 @@ signals:
 
 private:
     Ui::MainWindow *ui;
-    sneak robot;
+    sneak *robot;
     QLineEdit *lineEditr;
     QLineEdit *lineEdita;
     QPushButton *button;

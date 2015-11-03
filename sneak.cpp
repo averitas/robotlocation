@@ -1,21 +1,37 @@
 #include "sneak.h"
+#include <QPainter>
 
 #define PI 3.1415926535897932
 
-sneak::sneak(QObject *parent) : QObject(parent)
+sneak::sneak(QWidget *parent) : QWidget(parent)
 {
-    x=0;
-    y=0;
+    resize(400,300);
+    setWindowTitle(tr("Paint &Demo"));
+    p=new QPoint;
+    x=200;
+    y=150;
+    p->setX(x);
+    p->setY(y);
 }
 
 void sneak::move(double r, double angle){
     x=x+r*cos(angle*PI/180);
     y=y-r*sin(angle*PI/180);
+    p->setX(x);
+    p->setY(y);
+    update();
 }
 
-void sneak::print(){
-
+void sneak::paintEvent(QPaintEvent *event)
+{
+        QPainter painter(this);
+        painter.setPen(Qt::black);
+        painter.drawLine(200, 0, 200, 300);
+        painter.drawLine(0, 150, 400, 150);
+        painter.setBrush(Qt::red);
+        painter.drawEllipse(*p,2,2);
 }
+
 
 QString sneak::get(){
     QString res="";

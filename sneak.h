@@ -1,30 +1,31 @@
 #ifndef SNEAK_H
 #define SNEAK_H
 
-#include <QObject>
+#include <QWidget>
 #include <iostream>
 #include <vector>
 #include <cmath>
 #include <QString>
+#include <QPoint>
 
 using namespace std;
 
-class sneak : public QObject
+class sneak : public QWidget
 {
     Q_OBJECT
 public:
-    explicit sneak(QObject *parent = 0);
+    explicit sneak(QWidget *parent = 0);
     void move(double r,double angle);
     void print();
     QString get();
 
-signals:
-
-public slots:
+protected:
+    void paintEvent(QPaintEvent *event);
 
 private:
     int x;
     int y;
+    QPoint *p;
 };
 
 #endif // SNEAK_H
