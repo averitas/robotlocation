@@ -1,5 +1,6 @@
 #include "sneak.h"
 #include <QPainter>
+#include <QMessageBox>
 
 #define PI 3.1415926535897932
 
@@ -15,10 +16,21 @@ sneak::sneak(QWidget *parent) : QWidget(parent)
 }
 
 void sneak::move(double r, double angle){
-    x=x+r*cos(angle*PI/180);
-    y=y+r*sin(angle*PI/180);
-    p->setX(x);
-    p->setY(y);
+    int tmpx=x+r*cos(angle*PI/180);
+    int tmpy=y+r*sin(angle*PI/180);
+    if(tmpx>=0&&tmpx<=400&&tmpy>=0&&tmpy<=300){
+        x=tmpx;
+        y=tmpy;
+        p->setX(x);
+        p->setY(y);
+    }
+    else{
+        QMessageBox::warning(NULL,"Warning","Out of Boundary");
+        x=200;
+        y=150;
+        p->setX(x);
+        p->setY(y);
+    }
     update();
 }
 

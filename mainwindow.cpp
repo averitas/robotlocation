@@ -23,7 +23,7 @@ MainWindow::MainWindow(QWidget *parent) :
     button->setDefault(true);
     button->setEnabled(false);
 
-    showbutton=new QPushButton(tr("Show &Location"));
+    showbutton=new QPushButton(tr("Show"));
     button->setDefault(true);
     button->setEnabled(true);
 
