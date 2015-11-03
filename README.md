@@ -4,4 +4,4 @@ class sneak:
     print:draw the point
 
 class MainWindow:
-    
+    123
