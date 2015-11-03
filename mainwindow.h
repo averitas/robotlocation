@@ -23,6 +23,7 @@ public:
 protected slots:
     void startMove();
     void enableGo();
+    void showlocation();
     void getr(const QString& text);
     void geta(const QString& text);
 
@@ -34,6 +35,7 @@ private:
     QLineEdit *lineEditr;
     QLineEdit *lineEdita;
     QPushButton *button;
+    QPushButton *showbutton;
     QLabel *labelr;
     QLabel *labela;
     bool jr;

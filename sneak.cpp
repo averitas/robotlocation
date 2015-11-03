@@ -16,7 +16,7 @@ sneak::sneak(QWidget *parent) : QWidget(parent)
 
 void sneak::move(double r, double angle){
     x=x+r*cos(angle*PI/180);
-    y=y-r*sin(angle*PI/180);
+    y=y+r*sin(angle*PI/180);
     p->setX(x);
     p->setY(y);
     update();
@@ -35,8 +35,8 @@ void sneak::paintEvent(QPaintEvent *event)
 
 QString sneak::get(){
     QString res="";
-    int x_=x;
-    int y_=y;
+    int x_=x-200;
+    int y_=y-150;
     if(x_>0){
         while(x_>0){
             int tmp=x_%10;

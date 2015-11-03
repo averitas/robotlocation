@@ -16,7 +16,6 @@ class sneak : public QWidget
 public:
     explicit sneak(QWidget *parent = 0);
     void move(double r,double angle);
-    void print();
     QString get();
 
 protected:

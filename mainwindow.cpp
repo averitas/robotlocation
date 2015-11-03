@@ -2,13 +2,15 @@
 #include "ui_mainwindow.h"
 #include <QBoxLayout>
 #include <QMessageBox>
+#include <QPainter>
 
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent)
 {
-    setFixedSize(420,350);
+    this->setFixedSize(430,360);
     ja=jr=false;
+    robot=new sneak;
     labelr=new QLabel(tr("R"));
     lineEditr=new QLineEdit;
     labelr->setBuddy(lineEditr);
@@ -21,12 +23,15 @@ MainWindow::MainWindow(QWidget *parent) :
     button->setDefault(true);
     button->setEnabled(false);
 
+    showbutton=new QPushButton(tr("Show &Location"));
+    button->setDefault(true);
+    button->setEnabled(true);
+
     connect(lineEdita,SIGNAL(textChanged(const QString&)),this,SLOT(geta(const QString&)));
     connect(lineEditr,SIGNAL(textChanged(const QString&)),this,SLOT(getr(const QString&)));
 
     connect(button,SIGNAL(clicked(bool)),this,SLOT(enableGo()));
-
-    robot=new sneak;
+    connect(showbutton,SIGNAL(clicked(bool)),this,SLOT(showlocation()));
 
     QWidget *bar=new QWidget();
     this->setCentralWidget(bar);
@@ -37,6 +42,7 @@ MainWindow::MainWindow(QWidget *parent) :
     menubar->addWidget(labela);
     menubar->addWidget(lineEdita);
     menubar->addWidget(button);
+    menubar->addWidget(showbutton);
 
     QVBoxLayout *mainLayout=new QVBoxLayout;
     mainLayout->addLayout(menubar);
@@ -56,8 +62,10 @@ void MainWindow::enableGo(){
     int r=lineEditr->text().toInt();
     double angle=lineEdita->text().toDouble();
     robot->move(r,angle);
+}
+
+void MainWindow::showlocation(){
     QMessageBox::about(NULL, "About", robot->get());
-    update();
 }
 
 void MainWindow::getr(const QString& text){
