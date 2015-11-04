@@ -16,3 +16,10 @@ bool Robot::delRobot(int num){
 int Robot::getXY(int x,int y){
 	
 }
+
+void Robot::timepass(int seconds){
+}
+
+void Robot::print(){
+	
+}
