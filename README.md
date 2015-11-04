@@ -3,10 +3,10 @@
 
 <body>
 class Robot<br>
-	bool move(int,double,double); //move the index of num robot, return false if not exist<br>
-	void addRobot(); // add an Robot<br>
-	bool delRobot(int); //delete the robot that index of num, return false if not exist<br>
-	void timepass(int); //according to the time move all the robots<br>
-	void print(); //print the bitmap as ASCII characters<br>
+&nbsp;&nbsp;&nbsp;&nbsp;bool move(int,double,double); //move the index of num robot, return false if not exist<br>
+&nbsp;&nbsp;&nbsp;&nbsp;void addRobot(); // add an Robot<br>
+&nbsp;&nbsp;&nbsp;&nbsp;bool delRobot(int); //delete the robot that index of num, return false if not exist<br>
+&nbsp;&nbsp;&nbsp;&nbsp;void timepass(int); //according to the time move all the robots<br>
+&nbsp;&nbsp;&nbsp;&nbsp;void print(); //print the bitmap as ASCII characters<br>
 	
 </body>
